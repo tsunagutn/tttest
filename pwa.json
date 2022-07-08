@@ -8,12 +8,12 @@
 	"start_url": "https://tsunagutn.github.io/tttest/pwa.html",
 	"icons": [
 	 {
-	  "src": "/M/logo/logo1.png",
+	  "src": "/logo/logo1.png",
 	  "sizes": "192x192",
 	  "type": "image/png"
 	 },
 	 {
-	  "src": "/M/logo/logo5.png",
+	  "src": "/logo/logo5.png",
 	  "sizes": "512x512",
 	  "type": "image/png"
 	 }
