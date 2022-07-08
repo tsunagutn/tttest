@@ -4,8 +4,8 @@
 	"theme_color": "#36E1F1",
 	"background_color": "#36E1F1",
 	"display": "standalone",
-	"Scope": "http://192.168.3.130:8123/pwa.html",
-	"start_url": "http://192.168.3.130:8123/pwa.html",
+	"Scope": "https://tsunagutn.github.io/tttest/pwa.html",
+	"start_url": "https://tsunagutn.github.io/tttest/pwa.html",
 	"icons": [
 	 {
 	  "src": "/M/logo/logo1.png",
