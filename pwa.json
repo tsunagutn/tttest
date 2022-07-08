@@ -4,8 +4,8 @@
 	"theme_color": "#36E1F1",
 	"background_color": "#36E1F1",
 	"display": "standalone",
-	"Scope": "https://tsunagutn.github.io/tttest/pwa.html",
-	"start_url": "https://tsunagutn.github.io/tttest/pwa.html",
+	"Scope": "https://tsunagutn.github.io/tttest/pwaapp.html",
+	"start_url": "https://tsunagutn.github.io/tttest/pwaapp.html",
 	"icons": [
 	 {
 	  "src": "https://tsunagutn.github.io/tttest/logo/logo1.png",
