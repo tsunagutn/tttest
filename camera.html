@@ -10,21 +10,21 @@ function onAddFile(event) {
   var image = document.getElementById("img_source");
   
   reader.onload = function (event) {   
-     
+
     image.onload = function (){
       document.getElementById("msg").innerHTML =
         image.width+"x" +image.height;        
     };      
-       
+
     image.onerror  = function (){           
-      alert('���̉摜�͓ǂݍ��߂܂���B');  
+      alert('画像エラー');  
     };
- 
+
     image.src = reader.result;       
   };
   
   reader.onerror = function (){  
-    alert('���̃t�@�C���͓ǂݍ��߂܂���B');  
+    alert('リーダーエラー');  
   }
   
   if (files[0]){    
@@ -35,10 +35,23 @@ function onAddFile(event) {
   </script>
   </head>
   <body>
+    <form>
     <br>
-    <input type="file" id="inputfile" accept="image/*"  onchange="onAddFile(event);"><br>
+    <div>
+      <label>画像を表示する</label>
+      <input type="file" id="inputfile" accept="image/*" onchange="onAddFile(event);" placeholder="入力">
+        <!-- <input type="file" id="inputfile" accept="image/*" placeholder="入力" > -->
+    </div>
+    <br>
+    <div>
+      <label>ファイル選択のみ</label>
+      <input type="file" accept="image/*" capture="environment" placeholder="入力"/>
+        <!-- <input type="file" id="inputfile" accept="image/*" placeholder="入力" > -->
+    </div>
+    <br>
     <br>
     <div id="msg"></div>
     <img id="img_source">
+  </form>
   </body>
 </html>
