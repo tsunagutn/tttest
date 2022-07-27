@@ -72,14 +72,14 @@
     </div>
     <div style="margin-bottom: 20px;">
       <label>画像を表示する</label>
-      <input type="file" id="capture_img1" capture="camera" accept="image/*,video/*" onchange="onAddFile(event);" placeholder="入力">
+      <input type="file" id="capture_img1" accept="video/*,image/*" onchange="onAddFile(event);" placeholder="入力">
       <!-- <input type="file" id="inputfile" accept="image/*" placeholder="入力" > -->
       <button onclick="del('1');">消</button>
     </div>
     <br>
     <div style="margin-bottom: 20px;">
       <label>ファイル選択のみ</label>
-      <input type="file" id="capture_img2" capture="camera" accept="image/*,video/*" capture="environment" placeholder="入力"/>
+      <input type="file" id="capture_img2" accept="video/*,image/*" capture="environment" placeholder="入力"/>
         <!-- <input type="file" id="inputfile" accept="image/*" placeholder="入力" > -->
       <button onclick="del('2');">消</button>
     </div>
