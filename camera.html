@@ -65,7 +65,7 @@
     <!-- <form id="myForm" method="post" enctype="multipart/form-data"> -->
     <br>
     <div>
-    ver 0.0.12
+    ver 0.0.13
     </div>
     <div style="margin-bottom: 20px;">
       <input type="button" onclick="upload()" value="送信（テスト）"/>
@@ -114,6 +114,17 @@
       <p><input type="submit" name="save" value="保存" /></p>
     </form>
   
+    <code>accept="なし"</code>
+    <form action="upload.php" method="post" enctype="multipart/form-data">
+      <p><input type="file" name="upfile" id="upfile" /></p>
+      <p><input type="submit" name="save" value="保存" /></p>
+    </form>
+  
+    <code>accept="csv"</code>
+    <form action="upload.php" method="post" enctype="multipart/form-data">
+      <p><input type="file" name="upfile" id="upfile" accept=".csv" /></p>
+      <p><input type="submit" name="save" value="保存" /></p>
+    </form>
     <code>accept="image/*" capture="user"</code>
     <form action="upload.php" method="post" enctype="multipart/form-data">
       <p><input type="file" name="upfile" id="upfile" accept="image/*" capture="user" /></p>
