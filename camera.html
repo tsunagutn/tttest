@@ -3,61 +3,93 @@
   <head>
     <meta charset="UTF-8">
     <script>
-    
-function onAddFile(event) {
-  var reader = new FileReader();
-  var files = event.target.files;
-  var image = document.getElementById("img_source");
-  
-  reader.onload = function (event) {   
+      //撮影済みファイル削除ボタン
+      function del(id) {
+        //inputの画像削除
+        let obj = document.getElementById("capture_img" + id);
+        if (obj) obj.value = '';
+        //メッセージクリア
+        obj = document.getElementById("msg" + id);
+        if (obj) obj.innerHTML = "";
+        //表示画像クリア
+        obj = document.getElementById("img_source" + id);
+        if (obj) obj.src = "";
+      }
 
-    image.onload = function (){
-      document.getElementById("msg").innerHTML =
-        image.width+"x" +image.height;        
-    };      
+      function onAddFile(event) {
+        var reader = new FileReader();
+        var files = event.target.files;
+        var image = document.getElementById("img_source1");
+        reader.onload = function (event) {
+          image.onload = function (){
+            document.getElementById("msg1").innerHTML =
+              image.width+"x" +image.height;
+          };
+          image.onerror  = function () {
+            alert('画像を消しました、または画像エラー');  
+          };
 
-    image.onerror  = function (){           
-      alert('画像エラー');  
-    };
+          image.src = reader.result;       
+        };
+        
+        reader.onerror = function () {  
+          alert('リーダーエラー');  
+        }
+        
+        if (files[0]) {
+          reader.readAsDataURL(files[0]);
+        }
+      } 
+      
+      //アップロード（実際はしない）
+      function upload() {
+        //画像1データサイズ取得
+        const img1 = document.getElementById("capture_img1").value.length;
+        //画像2データサイズ取得
+        const img2 = document.getElementById("capture_img2").value.length;
 
-    image.src = reader.result;       
-  };
-  
-  reader.onerror = function (){  
-    alert('リーダーエラー');  
-  }
-  
-  if (files[0]){    
-    reader.readAsDataURL(files[0]);
-  }
-}   
- 
-  </script>
+
+        if (img1 == 0 || img2 == 0) {
+          //1と2が両方ないのでエラー画面へ
+          let prm = "?img1=" + (img1 == 0 ? "1" : "0") + "&img2=" + (img2 == 0 ? "1" : "0");
+          window.location.href = './err.html' + prm;
+        } else{
+          //正常完了画面へ
+          window.location.href = './fin.html';
+        }
+
+      }
+    </script>
   </head>
   <body>
-    <form>
+    <!-- <form> -->
     <br>
     <div>
     ver 0.0.3
     </div>
-    <div>
+    <div style="margin-bottom: 20px;">
+      <input type="button" onclick="upload()" value="送信（テスト）"/>
+    </div>
+    <div style="margin-bottom: 20px;">
       <label>画像を表示する</label>
-      <input type="file" id="inputfile" accept="image/*" onchange="onAddFile(event);" placeholder="入力">
-        <!-- <input type="file" id="inputfile" accept="image/*" placeholder="入力" > -->
+      <input type="file" id="capture_img1" accept="image/*" onchange="onAddFile(event);" placeholder="入力">
+      <!-- <input type="file" id="inputfile" accept="image/*" placeholder="入力" > -->
+      <button onclick="del('1');">消</button>
     </div>
     <br>
-    <div>
+    <div style="margin-bottom: 20px;">
       <label>ファイル選択のみ</label>
-      <input type="file" accept="image/*" capture="environment" placeholder="入力"/>
+      <input type="file" id="capture_img2" accept="image/*" capture="environment" placeholder="入力"/>
         <!-- <input type="file" id="inputfile" accept="image/*" placeholder="入力" > -->
+      <button onclick="del('2');">消</button>
     </div>
     <br>
     <br>
-    <div id="msg"></div>
-    <img id="img_source">
-  </form>
+    <div id="msg1"></div>
+    <img id="img_source1">
+  <!-- </form> -->
 
-  <input type="button" onclick="alert('ボタンをおしました')" value="アラートを出す"/>
+    <input type="button" onclick="alert('ボタンをおしました')" value="【テスト】アラートを出す"/>
 
   </body>
 </html>

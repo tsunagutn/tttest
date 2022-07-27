@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+
+    <script>
+
+      function onload() {
+        //GETパラメータを連装配列で取得
+        const prm = GetQueryString();
+
+        let msg = "";
+        if (prm['img1'] == '1') {
+          msg = "画像1がありません。"
+        }
+        if (prm['img2'] == '1') {
+          msg += "画像2がありません。"
+        }
+        document.getElementById('msg').innerHTML = msg;
+      }
+      /**
+       * GETパラメータをデコードし、連想配列で取得する
+       * */
+      function GetQueryString() {
+          let result = {};
+          if (1 < window.location.search.length) {
+              // 最初の1文字 (?記号) を除いた文字列を取得する
+              let query = window.location.search.substring(1);
+              // クエリの区切り記号 (&) で文字列を配列に分割する
+              let parameters = query.split('&');
+              for (let i = 0; i < parameters.length; i++) {
+                  // パラメータ名とパラメータ値に分割する
+                  let element = parameters[i].split('=');
+                  let paramName = decodeURIComponent(element[0]);
+                  let paramValue = decodeURIComponent(element[1]);
+                  // パラメータ名をキーとして連想配列に追加する
+                  result[paramName] = paramValue;
+              }
+          }
+          return result;
+      }
+    </script>
+  </head>
+  <body style="background-color: #FF9EA9" onload="onload();">
+
+
+    <label>エラーです</label>
+    <div id="msg"></div>
+
+
+  </body>
+</html>
