@@ -65,7 +65,7 @@
     <!-- <form id="myForm" method="post" enctype="multipart/form-data"> -->
     <br>
     <div>
-    ver 0.0.10
+    ver 0.0.11
     </div>
     <div style="margin-bottom: 20px;">
       <input type="button" onclick="upload()" value="送信（テスト）"/>
@@ -90,6 +90,42 @@
   <!-- </form> -->
 
     <input type="button" onclick="alert('ボタンをおしました')" value="【テスト】アラートを出す"/>
-
+    <code>accept="image/*"</code>
+    <form action="upload.php" method="post" enctype="multipart/form-data">
+      <p><input type="file" name="upfile" id="upfile" accept="image/*" /></p>
+      <p><input type="submit" name="save" value="保存" /></p>
+    </form>
+    
+    <code>accept="video/*"</code>
+    <form action="upload.php" method="post" enctype="multipart/form-data">
+      <p><input type="file" name="upfile" id="upfile" accept="video/*" /></p>
+      <p><input type="submit" name="save" value="保存" /></p>
+    </form>
+    
+    <code>accept=".gif"</code>
+    <form action="upload.php" method="post" enctype="multipart/form-data">
+      <p><input type="file" name="upfile" id="upfile" accept=".gif" /></p>
+      <p><input type="submit" name="save" value="保存" /></p>
+    </form>
+  
+    <code>accept="image/*" capture="user"</code>
+    <form action="upload.php" method="post" enctype="multipart/form-data">
+      <p><input type="file" name="upfile" id="upfile" accept="image/*" capture="user" /></p>
+      <p><input type="submit" name="save" value="保存" /></p>
+    </form>
+  
+    <code>accept="image/*" capture="environment"</code>
+    <form action="upload.php" method="post" enctype="multipart/form-data">
+      <p><input type="file" name="upfile" id="upfile" accept="image/*" capture="environment" /></p>
+      <p><input type="submit" name="save" value="保存" /></p>
+    </form>
+  
+  
+    <code>accept="image/*" capture="camera"</code>
+    <form action="upload.php" method="post" enctype="multipart/form-data">
+      <p><input type="file" name="upfile" id="upfile" accept="image/*" capture="camera" /></p>
+      <p><input type="submit" name="save" value="保存" /></p>
+    </form>
+    
   </body>
 </html>
